@@ -1,0 +1,55 @@
+
+/* Previsão (Embaixo) */
+.forecast-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
+
+.forecast-section h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.forecast-list {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    opacity: scroll;
+}
+
+.forecast-list::-webkit-scrollbar{
+    height:10px;
+    border-radius: 10px;
+}
+
+.forecast-list::-webkit-scrollbar-thumb{
+    background-color: rgba(128, 128, 128, 0.329);
+    border-radius: 10px;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.05);
+    min-width: 110px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1; /* Faz crescer no PC */
+    cursor:pointer;
+}
+.forecast-card img{
+    height:70%;
+    width:70%;
+    
+}
+.selected{
+    background-color:#1e3c72;
+}
+
+@media (min-width: 768px) {
+    .forecast-list {
+        justify-content: space-between;
+    }
+}

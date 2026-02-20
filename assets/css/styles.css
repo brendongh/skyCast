@@ -1,0 +1,69 @@
+@import"./partials/header.css";
+@import "./partials/weather-data.css";
+@import "./partials/forecast.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ul li{
+    list-style: none;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Azul escuro moderno */
+    color: white;
+    padding: 20px;
+}
+
+/* Container Principal */
+.weather-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2.5rem;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 850px; /* Largura ideal para PC */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Cor de quando estiver clicado */
+.legenda-ponto.ativo {
+    fill: white;
+}
+
+/* No seu CSS */
+.skeleton {
+    background-color: #44444460; /* Um cinza que combine com seu tema dark */
+    color: transparent !important;
+    border-radius: 4px;
+    min-width: 60px; /* Garante que o retângulo apareça */
+    min-height: 1.2em;
+    display: inline-block;
+    cursor: default;
+    pointer-events: none;
+    animation: skeleton-loading 1.5s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% { background-color: #33333375; }
+    100% { background-color: #5555552c; }
+}
+
+@media(max-width:768px){
+    
+    body{
+        padding:0;
+    }
+}

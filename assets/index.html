@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast - App de Clima</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main class="weather-container">
+        <header class="search-section">
+
+                <div class="search-bar">
+                    
+                    <i class="ph ph-magnifying-glass"></i>
+                    <div id="city-input">
+
+                        <input type="text" name="city" id="search-input" placeholder="Buscar clima da  cidade ...">
+                        <ul id="search-hist">
+                            
+                        </ul>
+                    </div>
+                    <button id="search-btn">Buscar</button>
+                </div>
+                <div id="error-message" class="hidden">Cidade não encontrada. Tente novamente!</div>
+        </header>
+        <section id="content">
+
+            <section class="main-display" id="weather-data">
+                <div class="location">
+                    <h1 id="city"></h1>
+                    <p id="date"></p>
+                </div>
+
+                <div class="weather-now">
+                    <img src="" alt="Ícone do tempo" id="weather-icon">
+                    <div class="temp-container">
+                        <div class="temperature">
+                            <span id="temp"></span><span class="unit">°C</span>
+                        </div>
+                        <p id="condition"></p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <i class="ph ph-drop"></i>
+                        <span>Umidade</span>
+                        <strong id="humidity"></strong>
+                    </div>
+                    <div class="stat-item">
+                        <i class="ph ph-wind"></i>
+                        <span>Vento</span>
+                        <strong id="wind-speed"></strong>
+                    </div>
+                    <div class="stat-item">
+                        <i class="ph ph-thermometer-simple"></i>
+                        <span>Sensação</span>
+                        <strong id="feels-like"></strong>
+                    </div>
+                </div>
+                <svg id="chart" width="700" height="200" style=" border-radius: 10px;"></svg>
+
+            </section>
+
+            <section class="forecast-section">
+                <h3>Próximos dias</h3>
+                <div class="forecast-list" id="forecast-container">
+                    <div class="forecast-card">
+                        <span class="day">Qua</span>
+                        <img src="https://openweathermap.org/img/wn/10d.png" alt="Chuva">
+                        <span class="temp">20°C</span>
+                    </div>
+                    <div class="forecast-card">
+                        <span class="day">Qui</span>
+                        <img src="https://openweathermap.org/img/wn/01d.png" alt="Sol">
+                        <span class="temp">25°C</span>
+                    </div>
+                    <div class="forecast-card">
+                        <span class="day">Sex</span>
+                        <img src="https://openweathermap.org/img/wn/02d.png" alt="Nuvens">
+                        <span class="temp">23°C</span>
+                    </div>
+                    <div class="forecast-card">
+                        <span class="day">Sáb</span>
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Nuvens">
+                        <span class="temp">21°C</span>
+                    </div>
+                    <div class="forecast-card">
+                        <span class="day">Dom</span>
+                        <img src="https://openweathermap.org/img/wn/01d.png" alt="Sol">
+                        <span class="temp">26°C</span>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <script src="./js/index.js" type="module"></script>
+</body>
+</html>
