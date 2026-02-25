@@ -1,6 +1,10 @@
 const userLanguage = navigator.language
 const hist = JSON.parse(localStorage.getItem('hist')) || []
 const IMG_DIR = "/src/assets" 
+function getImage(imageName){
+    const imgUrl = new URL(`../assets/${imageName}.svg`, import.meta.url).href;
+    return imgUrl
+} 
 const html = {
     container:document.querySelectorAll(".weather-container"),
     weatherData:document.querySelector("#weather-data"),
@@ -79,7 +83,7 @@ function setCurrent(params, isNewDay = true){
     html.condition.textContent = params.conditions
     html.feelsLike.textContent = `${params.feelslike} °C`
     html.humidity.textContent = `${params.humidity} %`
-    html.icon.src = `${IMG_DIR}/${params.icon}.svg`
+    html.icon.src = `${getImage(params.icon)}`
     html.temp.textContent = params.temp.toFixed(0)
     html.windSpeed.textContent = `${params.windspeed} km/h`
 }
@@ -192,12 +196,8 @@ async function search(city){
     const btnOriginalText = "Buscar"
 
     try{
-        // html.errorMessage.classList.add("hidden")
         const data = await fetchWeatherData(city)
-        // const data = json
 
-        
-        
         if(!data) throw new Error("error ao buscar nome")
                 
             updateUI(data)
