@@ -68,7 +68,7 @@ function forecastCard(index, params){
     return `
         <div class="forecast-card ${index === 0 && "selected"}" data-index=${index}>
             <span class="day">${daysOfTheWeek.slice(0, 3)}, ${date}</span>
-            <img src="${IMG_DIR}/${icon}.svg" alt="Chuva">
+            <img src="${getImage(params.icon)}" alt="Chuva">
             <span class="temp">${temp.toFixed(0)}°C</span>
         </div>
         `
