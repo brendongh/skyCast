@@ -38,6 +38,7 @@
     align-items: center;
     flex: 1; /* Faz crescer no PC */
     cursor:pointer;
+    font-size:.8rem;
 }
 .forecast-card img{
     height:70%;
