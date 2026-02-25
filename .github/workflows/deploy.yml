@@ -26,6 +26,8 @@ jobs:
         run: |
           npm install
           npm run build
+        env:
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }} # O robô pega a chave aqui
 
       - name: Configurando as Pages
         uses: actions/configure-pages@v4

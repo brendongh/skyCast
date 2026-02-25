@@ -1,9 +1,8 @@
 const userLanguage = navigator.language
 const hist = JSON.parse(localStorage.getItem('hist')) || []
-const IMG_DIR = "/src/assets" 
+const key = import.meta.env.VITE_API_KEY;
 function getImage(imageName){
-    const imgUrl = new URL(`../assets/${imageName}.svg`, import.meta.url).href;
-    return imgUrl
+ return new URL(`../assets/${imageName}.svg`, import.meta.url).href;
 } 
 const html = {
     container:document.querySelectorAll(".weather-container"),
@@ -68,7 +67,7 @@ function forecastCard(index, params){
     return `
         <div class="forecast-card ${index === 0 && "selected"}" data-index=${index}>
             <span class="day">${daysOfTheWeek.slice(0, 3)}, ${date}</span>
-            <img src="${getImage(params.icon)}" alt="Chuva">
+            <img src="${getImage(icon)}" alt="Chuva">
             <span class="temp">${temp.toFixed(0)}°C</span>
         </div>
         `
@@ -96,7 +95,7 @@ function setForecast(days){
 import renderChart from "./chart.js"
 
 const fetchWeatherData = async (city) => {
-    const apiKey = 'Q2WT2SYZH9TQKWET8CT7MUNXL';
+    const apiKey = key;
     const unitGroup = 'metric';
     const contentType = 'json';
     const lang = userLanguage.split("-")[0]
