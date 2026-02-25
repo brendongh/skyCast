@@ -1,6 +1,6 @@
 const userLanguage = navigator.language
 const hist = JSON.parse(localStorage.getItem('hist')) || []
-const IMG_DIR = "" 
+const IMG_DIR = "/src/assets" 
 const html = {
     container:document.querySelectorAll(".weather-container"),
     weatherData:document.querySelector("#weather-data"),
