@@ -1,0 +1,39 @@
+name: Deploy do Site Profissional
+
+on:
+  push:
+    branches: ["main"] # O robô só trabalha quando você envia código para a 'main'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # O robô usa um computador com Linux (Ubuntu)
+    steps:
+      - name: Baixando o código
+        uses: actions/checkout@v4
+
+      - name: Instalando o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalando dependências e fazendo Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Configurando as Pages
+        uses: actions/configure-pages@v4
+
+      - name: Enviando os arquivos para o servidor
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # Ele envia apenas a pasta que o Vite gerou!
+
+      - name: Publicando o site
+        uses: actions/deploy-pages@v4
